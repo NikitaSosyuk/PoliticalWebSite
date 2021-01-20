@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-master.xml"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="4" author="NikitaS">
+        <sql>
+            CREATE TABLE IF NOT EXISTS comments(
+            id INT AUTO_INCREMENT NOT NULL UNIQUE,
+            user_id INT NOT NULL,
+            author_username VARCHAR (45) NOT NULL,
+            comment_text VARCHAR(400) NOT NULL,
+            commentTimeOfCreate DATETIME default NOW(),
+            consignment_id INT NOT NULL,
+            PRIMARY KEY (ID),
+            CONSTRAINT consignments_id_fk
+            FOREIGN KEY (consignment_id) REFERENCES consignments (id) ON DELETE CASCADE,
+            CONSTRAINT users_id_fk
+            FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

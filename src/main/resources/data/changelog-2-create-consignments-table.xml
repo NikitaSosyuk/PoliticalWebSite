@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-master.xml"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2" author="NikitaS">
+        <sql>
+            CREATE TABLE IF NOT EXISTS consignments(
+            id INT NOT NULL UNIQUE,
+            name VARCHAR (45) NOT NULL UNIQUE,
+            leader  VARCHAR(40) NOT NULL,
+            `text`  VARCHAR (2500) NOT NULL,
+            image VARCHAR(80) NOT NULL,
+            PRIMARY KEY (ID)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
